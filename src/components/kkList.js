@@ -1,21 +1,24 @@
 import React from "react";
-import KKCar from "./kkCard";
+import KKCard from "./kkCard";
 
-const KKList = ({ title }) => {
+const KKList = ({ title, cards }) => {
   return (
     <div style={styles.container}>
       <h3>{title}</h3>
-      <KKCar />
+      {cards.map((card) => (
+        <KKCard text={card.text} />
+      ))}
     </div>
   );
 };
 
 const styles = {
   container: {
-    backgroundColor: "#ccc",
+    backgroundColor: "#dfe3e6",
     borderRadius: 3,
     width: 300,
     padding: 8,
+    marginRight: 8,
   },
 };
 
