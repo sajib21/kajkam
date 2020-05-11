@@ -15,7 +15,7 @@ const initialState = [
   },
   {
     title: "Make a Trello like app",
-    id: 0,
+    id: 1,
     cards: [
       {
         id: 0,
