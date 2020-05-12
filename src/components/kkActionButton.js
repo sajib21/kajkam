@@ -76,9 +76,10 @@ class KKActionButton extends Component {
       <div>
         <Card
           style={{
-            minHeight: 80,
-            minWidth: 272,
+            minHeight: 85,
             padding: "6px 8px 2px",
+            marginLeft: 8,
+            marginRight: 8,
           }}
         >
           <Textarea
@@ -122,13 +123,15 @@ const styles = {
     cursor: "pointer",
     borderRadius: 3,
     height: 36,
-    width: 272,
+    marginLeft: 8,
     paddingLeft: 10,
+    paddingRight: 10,
   },
   formButtonGroup: {
     marginTop: 8,
     display: "flex",
     alignItems: "center",
+    marginLeft: 8,
   },
 };
 

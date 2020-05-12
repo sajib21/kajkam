@@ -1,16 +1,26 @@
 import React from "react";
 import KKCard from "./kkCard";
 import KKActionButton from "./kkActionButton";
+import { Droppable } from "react-beautiful-dnd";
 
 const KKList = ({ title, cards, listID }) => {
   return (
-    <div style={styles.container}>
-      <h3>{title}</h3>
-      {cards.map((card) => (
-        <KKCard key={card.id} text={card.text} />
-      ))}
-      <KKActionButton listID={listID} />
-    </div>
+    <Droppable droppableId={String(listID)}>
+      {(provided) => (
+        <div
+          {...provided.droppableProps}
+          ref={provided.innerRef}
+          style={styles.container}
+        >
+          <h3>{title}</h3>
+          {cards.map((card, index) => (
+            <KKCard key={card.id} index={index} text={card.text} id={card.id} />
+          ))}
+          <KKActionButton listID={listID} />
+          {provided.placeholder}
+        </div>
+      )}
+    </Droppable>
   );
 };
 
