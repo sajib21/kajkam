@@ -2,14 +2,14 @@ import React from "react";
 import KKCard from "./kkCard";
 import KKActionButton from "./kkActionButton";
 
-const KKList = ({ title, cards }) => {
+const KKList = ({ title, cards, listID }) => {
   return (
     <div style={styles.container}>
       <h3>{title}</h3>
       {cards.map((card) => (
         <KKCard key={card.id} text={card.text} />
       ))}
-      <KKActionButton />
+      <KKActionButton listID={listID} />
     </div>
   );
 };

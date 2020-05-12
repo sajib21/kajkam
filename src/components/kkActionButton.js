@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Icon, Card, Button } from "@material-ui/core";
 import Textarea from "react-textarea-autosize";
 import { connect } from "react-redux";
-import { addList } from "./../actions/KKListActions";
+import { addList, addCard } from "../actions";
 
 class KKActionButton extends Component {
   state = {
@@ -15,7 +15,7 @@ class KKActionButton extends Component {
   };
 
   closeForm = (e) => {
-    this.setState({ formOpen: false });
+    this.setState({ formOpen: false, text: "" });
   };
 
   handleInputChange = (e) => {
@@ -25,7 +25,19 @@ class KKActionButton extends Component {
   handleAddList = () => {
     const { dispatch } = this.props;
     const { text } = this.state;
-    if (text) dispatch(addList(text));
+    if (text) {
+      this.setState({ text: "" });
+      dispatch(addList(text));
+    }
+  };
+
+  handleAddCard = () => {
+    const { dispatch, listID } = this.props;
+    const { text } = this.state;
+    if (text) {
+      this.setState({ text: "" });
+      dispatch(addCard(listID, text));
+    }
   };
 
   renderAddButton = () => {
@@ -87,7 +99,7 @@ class KKActionButton extends Component {
         <div style={styles.formButtonGroup}>
           <Button
             variant="contained"
-            onMouseDown={this.handleAddList}
+            onMouseDown={list ? this.handleAddList : this.handleAddCard}
             style={{ color: "white", backgroundColor: "#5aac44" }}
           >
             {buttonTitle}
