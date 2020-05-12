@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Icon, Card, Button } from "@material-ui/core";
 import Textarea from "react-textarea-autosize";
+import { connect } from "react-redux";
+import { addList } from "./../actions/KKListActions";
 
 class KKActionButton extends Component {
   state = {
@@ -18,6 +20,12 @@ class KKActionButton extends Component {
 
   handleInputChange = (e) => {
     this.setState({ text: e.target.value });
+  };
+
+  handleAddList = () => {
+    const { dispatch } = this.props;
+    const { text } = this.state;
+    if (text) dispatch(addList(text));
   };
 
   renderAddButton = () => {
@@ -79,6 +87,7 @@ class KKActionButton extends Component {
         <div style={styles.formButtonGroup}>
           <Button
             variant="contained"
+            onMouseDown={this.handleAddList}
             style={{ color: "white", backgroundColor: "#5aac44" }}
           >
             {buttonTitle}
@@ -111,4 +120,4 @@ const styles = {
   },
 };
 
-export default KKActionButton;
+export default connect()(KKActionButton);

@@ -1,3 +1,7 @@
+import { CONSTANTS } from "./../actions/index";
+
+let listID = 2;
+
 const initialState = [
   {
     title: "Learn ReactJS",
@@ -35,6 +39,13 @@ const initialState = [
 
 const listReducer = (state = initialState, action) => {
   switch (action.type) {
+    case CONSTANTS.ADD_LIST:
+      const newList = {
+        title: action.payload,
+        cards: [],
+        id: listID++,
+      };
+      return [...state, newList];
     default:
       return state;
   }
