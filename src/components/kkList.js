@@ -18,12 +18,12 @@ const KKList = ({ title, cards, listID }) => {
     <Droppable droppableId={String(listID)}>
       {(provided) => (
         <ListContainer {...provided.droppableProps} ref={provided.innerRef}>
-          <h3>{title}</h3>
+          <h4>{title}</h4>
           {cards.map((card, index) => (
             <KKCard key={card.id} index={index} text={card.text} id={card.id} />
           ))}
-          <KKActionButton listID={listID} />
           {provided.placeholder}
+          <KKActionButton listID={listID} />
         </ListContainer>
       )}
     </Droppable>

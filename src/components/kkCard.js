@@ -17,7 +17,7 @@ const KKCard = ({ text, id, index }) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <Card style={styles.cardContainer}>
+          <Card>
             <CardContent>
               <Typography gutterBottom>{text}</Typography>
             </CardContent>
@@ -26,12 +26,6 @@ const KKCard = ({ text, id, index }) => {
       )}
     </Draggable>
   );
-};
-
-const styles = {
-  cardContainer: {
-    marginBottom: 8,
-  },
 };
 
 export default KKCard;

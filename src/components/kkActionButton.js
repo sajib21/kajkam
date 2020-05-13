@@ -77,6 +77,7 @@ class KKActionButton extends Component {
         <Card
           style={{
             minHeight: 85,
+            minWidth: 272,
             padding: "6px 8px 2px",
             marginLeft: 8,
             marginRight: 8,
@@ -99,13 +100,13 @@ class KKActionButton extends Component {
         </Card>
         <div style={styles.formButtonGroup}>
           <Button
-            variant="contained"
             onMouseDown={list ? this.handleAddList : this.handleAddCard}
+            variant="contained"
             style={{ color: "white", backgroundColor: "#5aac44" }}
           >
-            {buttonTitle}
+            {buttonTitle}{" "}
           </Button>
-          <Icon style={{ marginLeft: 8, cursr: "pointer" }}>close</Icon>
+          <Icon style={{ marginLeft: 8, cursor: "pointer" }}>close</Icon>
         </div>
       </div>
     );
@@ -123,6 +124,7 @@ const styles = {
     cursor: "pointer",
     borderRadius: 3,
     height: 36,
+    width: 272,
     marginLeft: 8,
     paddingLeft: 10,
     paddingRight: 10,
