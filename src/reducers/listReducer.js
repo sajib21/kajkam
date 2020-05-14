@@ -95,6 +95,21 @@ const listReducer = (state = initialState, action) => {
       }
       return newState;
 
+    case CONSTANTS.EDIT_CARD: {
+      const { id, listID, newText } = action.payload;
+      return state.map((list) => {
+        if (list.id === listID) {
+          const newCards = list.cards.map((card) => {
+            if (card.id === id) {
+              card.text = newText;
+              return card;
+            } else return card;
+          });
+          return { ...list, cards: newCards };
+        } else return list;
+      });
+    }
+
     default:
       return state;
   }

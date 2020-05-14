@@ -59,7 +59,11 @@ const KKForm = ({ list, text = "", setText, onAction, closeForm }) => {
         />
       </StyledCard>
       <ButtonContainer>
-        <StyledButton variant="contained" children={buttonTitle} />
+        <StyledButton
+          variant="contained"
+          children={buttonTitle}
+          onMouseDown={onAction}
+        />
         <StyledIcon onMouseDown={closeForm}>close</StyledIcon>
       </ButtonContainer>
     </Container>

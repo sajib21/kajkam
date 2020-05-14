@@ -1,15 +1,33 @@
 import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
-import { Card, CardContent } from "@material-ui/core";
+import { Card, CardContent, Icon } from "@material-ui/core";
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import KKForm from "./kkForm";
+import { editCard } from "../actions";
+import { connect } from "react-redux";
 
 const CardContainer = styled.div`
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
+  position: relative;
 `;
 
-const KKCard = ({ text, id, index }) => {
+const EditButton = styled(Icon)`
+  position: absolute;
+  display: none;
+  right: 5px;
+  top: 5px;
+  opacity: 0.5;
+  ${CardContainer}:hover & {
+    display: block;
+    cursor: pointer;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const KKCard = ({ text, id, listID, index, dispatch }) => {
   const [editMode, setEditMode] = useState(false);
   const [cardText, setText] = useState(text);
 
@@ -17,7 +35,12 @@ const KKCard = ({ text, id, index }) => {
     setEditMode(false);
   };
 
-  const saveCard = () => {};
+  const saveCard = (e) => {
+    console.log("SAVE");
+    e.preventDefault();
+    dispatch(editCard(id, listID, cardText));
+    setEditMode(false);
+  };
 
   if (editMode)
     return (
@@ -38,6 +61,9 @@ const KKCard = ({ text, id, index }) => {
           {...provided.dragHandleProps}
         >
           <Card>
+            <EditButton fontSize="small" onMouseDown={() => setEditMode(true)}>
+              edit
+            </EditButton>
             <CardContent>
               <Typography gutterBottom>{text}</Typography>
             </CardContent>
@@ -48,4 +74,4 @@ const KKCard = ({ text, id, index }) => {
   );
 };
 
-export default KKCard;
+export default connect()(KKCard);
