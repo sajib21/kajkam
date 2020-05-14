@@ -56,9 +56,9 @@ class KKActionButton extends Component {
       border-radius: 3px;
       height: 36px;
       width: 300px;
-      marginleft: 8px;
-      paddingleft: 10px;
-      paddingright: 10px;
+      margin-left: 8px;
+      padding-left: 10px;
+      padding-right: 10px;
       opacity: ${buttonTextOpacity};
       color: ${buttonTextColor};
       background-color: ${buttonTextBackground};
