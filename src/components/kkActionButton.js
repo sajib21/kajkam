@@ -65,7 +65,7 @@ class KKActionButton extends Component {
     `;
 
     return (
-      <OpenFormButton>
+      <OpenFormButton onClick={this.openForm}>
         <Icon>add</Icon>
         <p style={{ flexShrink: 0 }}>{buttonText}</p>
       </OpenFormButton>
