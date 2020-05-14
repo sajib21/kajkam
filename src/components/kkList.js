@@ -1,6 +1,6 @@
 import React from "react";
 import KKCard from "./kkCard";
-import KKActionButton from "./kkActionButton";
+import KKCreate from "./kkCreate";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 
@@ -13,7 +13,7 @@ const ListContainer = styled.div`
   margin-right: 8px;
 `;
 
-const KKList = ({ title, cards, listID, index }) => {
+const KKList = React.memo(({ title, cards, listID, index }) => {
   return (
     <Draggable draggableId={String(listID)} index={index}>
       {(provided) => (
@@ -36,7 +36,7 @@ const KKList = ({ title, cards, listID, index }) => {
                   />
                 ))}
                 {provided.placeholder}
-                <KKActionButton listID={listID} />
+                <KKCreate listID={listID} />
               </div>
             )}
           </Droppable>
@@ -44,6 +44,6 @@ const KKList = ({ title, cards, listID, index }) => {
       )}
     </Draggable>
   );
-};
+});
 
 export default KKList;

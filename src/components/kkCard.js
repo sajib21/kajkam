@@ -6,10 +6,13 @@ import styled from "styled-components";
 import KKForm from "./kkForm";
 import { editCard } from "../actions";
 import { connect } from "react-redux";
+import KKButton from "./kkButton";
 
 const CardContainer = styled.div`
   margin: 0 0 8px 0;
   position: relative;
+  max-width: 100%;
+  word-wrap: break-word;
 `;
 
 const EditButton = styled(Icon)`
@@ -27,12 +30,16 @@ const EditButton = styled(Icon)`
   }
 `;
 
-const KKCard = ({ text, id, listID, index, dispatch }) => {
+const KKCard = React.memo(({ text, id, listID, index, dispatch }) => {
   const [editMode, setEditMode] = useState(false);
   const [cardText, setText] = useState(text);
 
   const closeForm = (e) => {
     setEditMode(false);
+  };
+
+  const handleChange = (e) => {
+    setText(e.target.value);
   };
 
   const saveCard = (e) => {
@@ -48,8 +55,10 @@ const KKCard = ({ text, id, listID, index, dispatch }) => {
         text={cardText}
         setText={setText}
         closeForm={closeForm}
-        onAction={saveCard}
-      />
+        onChange={handleChange}
+      >
+        <KKButton text="Save" onClick={saveCard}></KKButton>
+      </KKForm>
     );
 
   return (
@@ -72,6 +81,6 @@ const KKCard = ({ text, id, listID, index, dispatch }) => {
       )}
     </Draggable>
   );
-};
+});
 
 export default connect()(KKCard);
