@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import KKList from "./kkList";
 import { connect } from "react-redux";
-import KKActionButton from "./kkActionButton";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { sort } from "../actions";
 import styled from "styled-components";
+import KKCreate from "./kkCreate";
 
 const ListContainer = styled.div`
   display: flex;
@@ -45,7 +45,7 @@ class App extends Component {
                 />
               ))}
               {provided.placeholder}
-              <KKActionButton list />
+              <KKCreate list />
             </ListContainer>
           )}
         </Droppable>
