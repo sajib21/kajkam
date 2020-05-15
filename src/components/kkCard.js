@@ -51,6 +51,7 @@ const KKCard = React.memo(({ text, id, listID, index, dispatch }) => {
 
   const closeForm = (e) => {
     setEditMode(false);
+    setText(text);
   };
 
   const handleChange = (e) => {

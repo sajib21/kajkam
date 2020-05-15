@@ -7,6 +7,16 @@ export const addList = (title) => {
   };
 };
 
+export const editListTitle = (listID, newTitle) => {
+  return {
+    type: CONSTANTS.EDIT_LIST_TITLE,
+    payload: {
+      listID,
+      newTitle,
+    },
+  };
+};
+
 export const sort = (
   droppableIdStart,
   droppableIdEnd,

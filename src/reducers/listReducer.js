@@ -120,6 +120,16 @@ const listReducer = (state = initialState, action) => {
       });
     }
 
+    case CONSTANTS.EDIT_LIST_TITLE: {
+      const { listID, newTitle } = action.payload;
+      return state.map((list) => {
+        if (list.id === listID) {
+          list.title = newTitle;
+          return list;
+        } else return list;
+      });
+    }
+
     default:
       return state;
   }
