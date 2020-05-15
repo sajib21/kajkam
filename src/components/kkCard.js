@@ -4,7 +4,7 @@ import { Card, CardContent, Icon } from "@material-ui/core";
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import KKForm from "./kkForm";
-import { editCard } from "../actions";
+import { editCard, deleteCard } from "../actions";
 import { connect } from "react-redux";
 import KKButton from "./kkButton";
 
@@ -30,6 +30,21 @@ const EditButton = styled(Icon)`
   }
 `;
 
+const DeleteButton = styled(Icon)`
+  position: absolute;
+  display: none;
+  right: 5px;
+  bottom: 5px;
+  opacity: 0.5;
+  ${CardContainer}:hover & {
+    display: block;
+    cursor: pointer;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 const KKCard = React.memo(({ text, id, listID, index, dispatch }) => {
   const [editMode, setEditMode] = useState(false);
   const [cardText, setText] = useState(text);
@@ -43,10 +58,14 @@ const KKCard = React.memo(({ text, id, listID, index, dispatch }) => {
   };
 
   const saveCard = (e) => {
-    console.log("SAVE");
     e.preventDefault();
     dispatch(editCard(id, listID, cardText));
     setEditMode(false);
+  };
+
+  const eraseCard = (e) => {
+    console.log("Erase");
+    dispatch(deleteCard(id, listID));
   };
 
   if (editMode)
@@ -73,6 +92,9 @@ const KKCard = React.memo(({ text, id, listID, index, dispatch }) => {
             <EditButton fontSize="small" onMouseDown={() => setEditMode(true)}>
               edit
             </EditButton>
+            <DeleteButton fontSize="small" onMouseDown={eraseCard}>
+              delete
+            </DeleteButton>
             <CardContent>
               <Typography gutterBottom>{text}</Typography>
             </CardContent>
