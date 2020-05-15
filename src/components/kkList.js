@@ -4,7 +4,8 @@ import KKCreate from "./kkCreate";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { editListTitle } from "../actions";
+import { editListTitle, deleteList } from "../actions";
+import { Icon } from "@material-ui/core";
 
 const ListContainer = styled.div`
   background-color: #dfe3e6;
@@ -22,6 +23,33 @@ const StyledInput = styled.input`
   border-radius: 3px;
   margin-bottom: 3px;
   padding: 5px;
+`;
+
+const TitleContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+`;
+
+const ListTitle = styled.h4`
+  transition: background 0.3s ease-in;
+  ${TitleContainer}:hover & {
+    background: #ccc;
+  }
+`;
+
+const DeleteButton = styled(Icon)`
+  display: none;
+  opacity: 0.5;
+  ${TitleContainer}:hover & {
+    display: block;
+    cursor: pointer;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const KKList = React.memo(({ title, cards, listID, index, dispatch }) => {
@@ -42,9 +70,13 @@ const KKList = React.memo(({ title, cards, listID, index, dispatch }) => {
     dispatch(editListTitle(listID, listTitle));
   };
 
+  const handleDeleteList = () => {
+    dispatch(deleteList(listID));
+  };
+
   const renderEditInput = () => {
     return (
-      <input
+      <StyledInput
         type="text"
         value={listTitle}
         onChange={handleChange}
@@ -69,7 +101,12 @@ const KKList = React.memo(({ title, cards, listID, index, dispatch }) => {
                 {editMode ? (
                   renderEditInput()
                 ) : (
-                  <h4 onClick={() => setEditMode(true)}>{title}</h4>
+                  <TitleContainer onClick={() => setEditMode(true)}>
+                    <ListTitle>{listTitle}</ListTitle>
+                    <DeleteButton onClick={handleDeleteList}>
+                      delete
+                    </DeleteButton>
+                  </TitleContainer>
                 )}
                 {cards.map((card, index) => (
                   <KKCard
