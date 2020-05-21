@@ -59,7 +59,7 @@ class KKBoard extends Component {
                       key={list.listID}
                       listID={list.listID}
                       title={list.listTitle}
-                      cards={list.cards}
+                      cards={listCards}
                       index={index}
                     />
                   );

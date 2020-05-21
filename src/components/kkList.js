@@ -95,30 +95,34 @@ const KKList = React.memo(({ title, cards, listID, index, dispatch }) => {
           ref={provided.innerRef}
           {...provided.dragHandleProps}
         >
-          <Droppable droppableId={String(listID)}>
+          <Droppable droppableId={String(listID)} type="card">
             {(provided) => (
-              <div {...provided.droppableProps} ref={provided.innerRef}>
-                {editMode ? (
-                  renderEditInput()
-                ) : (
-                  <TitleContainer onClick={() => setEditMode(true)}>
-                    <ListTitle>{listTitle}</ListTitle>
-                    <DeleteButton onClick={handleDeleteList}>
-                      delete
-                    </DeleteButton>
-                  </TitleContainer>
-                )}
-                {cards.map((card, index) => (
-                  <KKCard
-                    key={card.id}
-                    index={index}
-                    text={card.text}
-                    id={card.id}
-                    listID={listID}
-                  />
-                ))}
-                {provided.placeholder}
-                <KKCreate listID={listID} />
+              <div>
+                <div>
+                  {editMode ? (
+                    renderEditInput()
+                  ) : (
+                    <TitleContainer onClick={() => setEditMode(true)}>
+                      <ListTitle>{listTitle}</ListTitle>
+                      <DeleteButton onClick={handleDeleteList}>
+                        delete
+                      </DeleteButton>
+                    </TitleContainer>
+                  )}
+                </div>
+                <div {...provided.droppableProps} ref={provided.innerRef}>
+                  {cards.map((card, index) => (
+                    <KKCard
+                      key={card.cardID}
+                      index={index}
+                      text={card.text}
+                      id={card.cardID}
+                      listID={listID}
+                    />
+                  ))}
+                  {provided.placeholder}
+                  <KKCreate listID={listID} />
+                </div>
               </div>
             )}
           </Droppable>
