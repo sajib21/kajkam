@@ -65,7 +65,6 @@ const KKCard = React.memo(({ text, id, listID, index, dispatch }) => {
   };
 
   const eraseCard = (e) => {
-    console.log("Erase");
     dispatch(deleteCard(id, listID));
   };
 

@@ -56,9 +56,9 @@ class KKBoard extends Component {
                   const listCards = list.cards.map((cardID) => cards[cardID]);
                   return (
                     <KKList
-                      key={list.id}
-                      listID={list.id}
-                      title={list.title}
+                      key={list.listID}
+                      listID={list.listID}
+                      title={list.listTitle}
                       cards={list.cards}
                       index={index}
                     />
