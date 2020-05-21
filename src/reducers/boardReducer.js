@@ -27,13 +27,13 @@ const boardReducer = (state = initialState, action) => {
     case CONSTANTS.ADD_LIST: {
       const { boardID, listID } = action.payload;
       const board = state[boardID];
-      const newLists = [...board.lists, listID];
-      board.lists = newLists;
+      board.lists.push(listID);
       return { ...state, [boardID]: board };
     }
 
     case CONSTANTS.DELETE_LIST: {
       const { boardID, listID } = action.payload;
+      console.log("Board Reducer: delete list: ", listID, boardID);
       const board = state[boardID];
       const newLists = board.lists.filter((id) => id != listID);
       board.lists = newLists;

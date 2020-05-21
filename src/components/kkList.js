@@ -71,6 +71,7 @@ const KKList = React.memo(({ title, cards, listID, index, dispatch }) => {
   };
 
   const handleDeleteList = () => {
+    console.log("KKList: delete list: ", listID);
     dispatch(deleteList(listID));
   };
 

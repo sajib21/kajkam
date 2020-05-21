@@ -87,6 +87,7 @@ const KKCard = React.memo(({ text, id, listID, index, dispatch }) => {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
+          onDoubleClick={() => setEditMode(true)}
         >
           <Card>
             <EditButton fontSize="small" onMouseDown={() => setEditMode(true)}>
@@ -96,7 +97,7 @@ const KKCard = React.memo(({ text, id, listID, index, dispatch }) => {
               delete
             </DeleteButton>
             <CardContent>
-              <Typography gutterBottom>{text}</Typography>
+              <Typography>{text}</Typography>
             </CardContent>
           </Card>
         </CardContainer>

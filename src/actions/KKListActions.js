@@ -5,7 +5,11 @@ export const addList = (listTitle) => {
   return (dispatch, getState) => {
     dispatch({
       type: CONSTANTS.ADD_LIST,
-      payload: { listTitle, boardID: getState().activeBoard, listID: uuid() },
+      payload: {
+        listTitle,
+        boardID: getState().currentBoard.boardID,
+        listID: uuid(),
+      },
     });
   };
 };
@@ -21,12 +25,13 @@ export const editListTitle = (listID, newListTitle) => {
 };
 
 export const deleteList = (listID) => {
+  console.log("List Actions: delete list: ", listID);
   return (dispatch, getState) => {
     return dispatch({
       type: CONSTANTS.DELETE_LIST,
       payload: {
         listID,
-        boardID: getState().activeBoard,
+        boardID: getState().currentBoard.boardID,
       },
     });
   };
@@ -50,7 +55,7 @@ export const sort = (
         droppableIndexEnd,
         draggableId,
         type,
-        boardID: getState().activeBoard,
+        boardID: getState().currentBoard.boardID,
       },
     });
   };
