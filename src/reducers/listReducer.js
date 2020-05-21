@@ -40,29 +40,14 @@ const initialState = [
 
 const listReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CONSTANTS.ADD_LIST:
+    case CONSTANTS.ADD_LIST: {
+      const { title, id } = action.payload;
       const newList = {
-        title: action.payload,
+        title: title,
+        id: id,
         cards: [],
-        id: `list-${listID++}`,
       };
-      return [...state, newList];
-
-    case CONSTANTS.ADD_CARD: {
-      const newCard = {
-        id: `card-${cardID++}`,
-        text: action.payload.text,
-      };
-
-      const newState = state.map((list) => {
-        if (list.id === action.payload.listID)
-          return {
-            ...list,
-            cards: [...list.cards, newCard],
-          };
-        else return list;
-      });
-      return newState;
+      return { ...state, [id]: newList };
     }
 
     case CONSTANTS.DRAG_HAPPENED:

@@ -50,7 +50,7 @@ export const sort = (
         droppableIndexEnd,
         draggableId,
         type,
-        boardID,
+        boardID: getState().activeBoard,
       },
     });
   };
