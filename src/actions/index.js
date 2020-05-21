@@ -1,3 +1,4 @@
+export * from "./boardActions";
 export * from "./KKListActions";
 export * from "./KKCardActions";
 
@@ -9,4 +10,6 @@ export const CONSTANTS = {
   DELETE_CARD: "DELETE_CARD",
   EDIT_LIST_TITLE: "EDIT_LIST_TITLE",
   DELETE_LIST: "DELETE_LIST",
+  ADD_BOARD: "ADD_BOARD",
+  SET_CURRENT_BOARD: "SET_CURRENT_BOARD",
 };

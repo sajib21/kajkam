@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import KKForm from "./kkForm";
 import KKButton from "./kkButton";
 import KKAddNewButton from "./kkAddNewButton";
-import { addList } from "./../actions/KKListActions";
-import { addCard } from "./../actions/KKCardActions";
+import { addList, addCard } from "../actions";
 
 class KKCreate extends Component {
   state = {

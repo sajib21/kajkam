@@ -1,28 +1,39 @@
 import { CONSTANTS } from "./index";
+import uuid from "react-uuid";
 
-export const addList = (title) => {
-  return {
-    type: CONSTANTS.ADD_LIST,
-    payload: title,
+export const addList = (listTitle) => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: CONSTANTS.ADD_LIST,
+      payload: {
+        listTitle,
+        boardID: getState().currentBoard.boardID,
+        listID: uuid(),
+      },
+    });
   };
 };
 
-export const editListTitle = (listID, newTitle) => {
+export const editListTitle = (listID, newListTitle) => {
   return {
     type: CONSTANTS.EDIT_LIST_TITLE,
     payload: {
       listID,
-      newTitle,
+      newListTitle,
     },
   };
 };
 
 export const deleteList = (listID) => {
-  return {
-    type: CONSTANTS.DELETE_LIST,
-    payload: {
-      listID,
-    },
+  console.log("List Actions: delete list: ", listID);
+  return (dispatch, getState) => {
+    return dispatch({
+      type: CONSTANTS.DELETE_LIST,
+      payload: {
+        listID,
+        boardID: getState().currentBoard.boardID,
+      },
+    });
   };
 };
 
@@ -34,15 +45,18 @@ export const sort = (
   draggableId,
   type
 ) => {
-  return {
-    type: CONSTANTS.DRAG_HAPPENED,
-    payload: {
-      droppableIdStart,
-      droppableIdEnd,
-      droppableIndexStart,
-      droppableIndexEnd,
-      draggableId,
-      type,
-    },
+  return (dispatch, getState) => {
+    dispatch({
+      type: CONSTANTS.DRAG_HAPPENED,
+      payload: {
+        droppableIdStart,
+        droppableIdEnd,
+        droppableIndexStart,
+        droppableIndexEnd,
+        draggableId,
+        type,
+        boardID: getState().currentBoard.boardID,
+      },
+    });
   };
 };
