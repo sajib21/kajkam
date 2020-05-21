@@ -1,4 +1,4 @@
-import { CONSTANTS } from "./../actions/index";
+import { CONSTANTS } from "../actions";
 
 const initialState = {
   "board-00": {
@@ -60,3 +60,5 @@ const boardReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default boardReducer;
