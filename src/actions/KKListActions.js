@@ -1,21 +1,21 @@
 import { CONSTANTS } from "./index";
 import uuid from "react-uuid";
 
-export const addList = (title) => {
+export const addList = (listTitle) => {
   return (dispatch, getState) => {
     dispatch({
       type: CONSTANTS.ADD_LIST,
-      payload: { title, boardID: getState().activeBoard, id: uuid() },
+      payload: { listTitle, boardID: getState().activeBoard, listID: uuid() },
     });
   };
 };
 
-export const editListTitle = (listID, newTitle) => {
+export const editListTitle = (listID, newListTitle) => {
   return {
     type: CONSTANTS.EDIT_LIST_TITLE,
     payload: {
       listID,
-      newTitle,
+      newListTitle,
     },
   };
 };

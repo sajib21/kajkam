@@ -4,20 +4,20 @@ import uuid from "react-uuid";
 export const addCard = (listID, text) => {
   return {
     type: CONSTANTS.ADD_CARD,
-    payload: { text, listID, id: uuid() },
+    payload: { text, listID, cardID: uuid() },
   };
 };
 
-export const editCard = (id, listID, newText) => {
+export const editCard = (cardID, listID, newText) => {
   return {
     type: CONSTANTS.EDIT_CARD,
-    payload: { id, listID, newText },
+    payload: { cardID, listID, newText },
   };
 };
 
-export const deleteCard = (id, listID) => {
+export const deleteCard = (cardID, listID) => {
   return {
     type: CONSTANTS.DELETE_CARD,
-    payload: { id, listID },
+    payload: { cardID, listID },
   };
 };
