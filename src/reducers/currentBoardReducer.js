@@ -1,6 +1,6 @@
 import { CONSTANTS } from "../actions";
 
-const activeBoardReducer = (state = null, action) => {
+const currentBoardReducer = (state = null, action) => {
   switch (action.type) {
     case CONSTANTS.SET_ACTIVE_BOARD: {
       return action.payload;
@@ -11,4 +11,4 @@ const activeBoardReducer = (state = null, action) => {
   }
 };
 
-export default activeBoardReducer;
+export default currentBoardReducer;

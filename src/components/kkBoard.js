@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import KKList from "./kkList";
 import { connect } from "react-redux";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import { sort } from "../actions";
+import { sort, setCurrentBoard } from "../actions";
 import styled from "styled-components";
 import KKCreate from "./kkCreate";
+import { Link } from "react-router-dom";
 
 const ListContainer = styled.div`
   display: flex;
@@ -12,6 +13,12 @@ const ListContainer = styled.div`
 `;
 
 class KKBoard extends Component {
+  componentDidMount() {
+    const { boardID } = this.props.match.params;
+    console.log("Board: CDM", boardID);
+    this.props.dispatch(setCurrentBoard(boardID));
+  }
+
   onDragEnd = (result) => {
     const { destination, source, draggableId, type } = result;
     if (!destination) return;
@@ -28,23 +35,36 @@ class KKBoard extends Component {
   };
 
   render() {
-    console.log("KKBOARD");
-    const { lists } = this.props;
+    const { lists, cards, match, boards } = this.props;
+    const { boardID } = match.params;
+    const board = boards[boardID];
+    if (!board)
+      return <h1 style={{ textAlign: "center" }}>Board not found!</h1>;
+
+    const listOrder = board.lists;
+
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <h2>Hello World</h2>
+        <Link to="/">Home</Link>
+        <h1 style={{ textAlign: "center" }}>{board.boardTitle}</h1>
         <Droppable droppableId="all-lists" direction="horizontal" type="list">
           {(provided) => (
             <ListContainer {...provided.droppableProps} ref={provided.innerRef}>
-              {lists.map((list, index) => (
-                <KKList
-                  key={list.id}
-                  listID={list.id}
-                  title={list.title}
-                  cards={list.cards}
-                  index={index}
-                />
-              ))}
+              {listOrder.map((listID, index) => {
+                const list = lists[listID];
+                if (list) {
+                  const listCards = list.cards.map((cardID) => cards[cardID]);
+                  return (
+                    <KKList
+                      key={list.id}
+                      listID={list.id}
+                      title={list.title}
+                      cards={list.cards}
+                      index={index}
+                    />
+                  );
+                }
+              })}
               {provided.placeholder}
               <KKCreate list />
             </ListContainer>
@@ -56,7 +76,9 @@ class KKBoard extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  boards: state.boards,
   lists: state.lists,
+  cards: state.cards,
 });
 
 export default connect(mapStateToProps)(KKBoard);

@@ -1,6 +1,6 @@
+export * from "./boardActions";
 export * from "./KKListActions";
 export * from "./KKCardActions";
-export * from "./boardActions";
 
 export const CONSTANTS = {
   ADD_CARD: "ADD_CARD",
@@ -11,5 +11,5 @@ export const CONSTANTS = {
   EDIT_LIST_TITLE: "EDIT_LIST_TITLE",
   DELETE_LIST: "DELETE_LIST",
   ADD_BOARD: "ADD_BOARD",
-  SET_ACTIVE_BOARD: "SET_ACTIVE_BOARD",
+  SET_CURRENT_BOARD: "SET_CURRENT_BOARD",
 };
