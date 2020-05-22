@@ -77,6 +77,7 @@ class KKBoard extends Component {
 
 const mapStateToProps = (state) => ({
   boards: state.boards,
+  currentBoard: state.currentBoard,
   lists: state.lists,
   cards: state.cards,
 });

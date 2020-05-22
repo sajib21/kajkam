@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addBoard } from "../actions";
+import { addBoard, setCurrentBoard } from "../actions";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -62,6 +62,7 @@ const CreateInput = styled.input`
 
 const Home = ({ boards, dispatch, match }) => {
   console.log("Home: ", match.params);
+  dispatch(setCurrentBoard(null));
   const [newBoardTitle, setNewBoardTitle] = useState("");
 
   const handleChange = (e) => {
