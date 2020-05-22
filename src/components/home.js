@@ -60,7 +60,8 @@ const CreateInput = styled.input`
   align-self: center;
 `;
 
-const Home = ({ boards, dispatch }) => {
+const Home = ({ boards, dispatch, match }) => {
+  console.log("Home: ", match.params);
   const [newBoardTitle, setNewBoardTitle] = useState("");
 
   const handleChange = (e) => {
@@ -96,7 +97,7 @@ const Home = ({ boards, dispatch }) => {
         <CreateInput
           onChange={handleChange}
           value={newBoardTitle}
-          placeholder={"Enter title here"}
+          placeholder={"Enter title and Hit enter"}
           type="text"
         />
       </form>
@@ -105,6 +106,7 @@ const Home = ({ boards, dispatch }) => {
 
   return (
     <HomeContainer>
+      <h1 style={{ textAlign: "center" }}>Boards</h1>
       <Thumbnails>{renderAllBoards()}</Thumbnails>
       {renderCreateNewBoard()}
     </HomeContainer>

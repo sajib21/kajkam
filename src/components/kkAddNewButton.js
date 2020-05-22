@@ -26,7 +26,7 @@ const KKAddNewButton = ({ list, onClick }) => {
   return (
     <StyledAddNewButton onClick={onClick}>
       <Icon>add</Icon>
-      <p style={{ flexShrink: 0 }}> {buttonText}</p>
+      <span style={{ flexShrink: 0 }}> {buttonText}</span>
     </StyledAddNewButton>
   );
 };

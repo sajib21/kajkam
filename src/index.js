@@ -4,28 +4,20 @@ import { Provider } from "react-redux";
 import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 import Store from "./store";
-import { createGlobalStyle } from "styled-components";
 import "./index.css";
 import $ from "jquery";
 import { PersistGate } from "redux-persist/integration/react";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
 
 const { persistor, store } = Store();
-
-const GlobalStyle = createGlobalStyle`
-  html {
-    background-color: crimson;
-    box-sizing: border-box;
-  }
-`;
 
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <GlobalStyle />
-      <BrowserRouter>
+      <HashRouter>
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </PersistGate>
   </Provider>,
   document.getElementById("root")

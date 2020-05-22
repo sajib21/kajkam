@@ -35,6 +35,7 @@ class KKBoard extends Component {
   };
 
   render() {
+    console.log("Board params.boardid: ", this.props.match.params.boardID);
     const { lists, cards, match, boards } = this.props;
     const { boardID } = match.params;
     const board = boards[boardID];
@@ -45,7 +46,6 @@ class KKBoard extends Component {
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <Link to="/">Home</Link>
         <h1 style={{ textAlign: "center" }}>{board.boardTitle}</h1>
         <Droppable droppableId="all-lists" direction="horizontal" type="list">
           {(provided) => (
