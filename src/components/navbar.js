@@ -1,35 +1,31 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./anime.css";
 
 const Navbar = ({ user }) => {
   return (
     <nav
-      className="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-dark"
+      class="navbar navbar-expand-lg navbar-dark bg-dark"
       style={{ position: "fixed", zIndex: "1", width: "100%" }}
     >
-      <a className="navbar-brand" href="/">
-        Kajkam
-      </a>
-      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div className="navbar-nav">
-          <a className="nav-item nav-link active" href="/">
-            Home <span className="sr-only">(current)</span>
-          </a>
-          <a className="nav-item nav-link" href="/inbox">
-            Inbox
-          </a>
-          {!user && (
-            <React.Fragment>
-              <NavLink className="nav-item nav-link" to="/login">
-                Login
-              </NavLink>
-              <NavLink className="nav-item nav-link" to="/register">
-                Register
-              </NavLink>
-            </React.Fragment>
-          )}
-        </div>
+      <div class="d-flex w-50 order-0"></div>
+      <div
+        class="navbar-collapse collapse justify-content-center order-2"
+        id="collapsingNavbar"
+      >
+        <a
+          className="navbar-brand gh1"
+          style={{
+            boxShadow: "0px 0px 5px #fff",
+            borderRadius: "10px",
+            padding: "5px",
+          }}
+          href="/"
+        >
+          K A J K A M
+        </a>
       </div>
+      <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last"></span>
     </nav>
   );
 };
