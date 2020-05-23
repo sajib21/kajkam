@@ -20,15 +20,16 @@ class Navbar extends Component {
         <div class="row my-3">
           <div class="col-4 text-left">
             <a class="text-white" style={{ padding: "5px" }} href="#">
-              Back
+              Home
             </a>
           </div>
           <div class="col-4 text-center">
             <a
-              class="gh1"
+              class="text-white gh1"
               style={{
                 backgroundColor: "black",
                 boxShadow: "0px 0px 5px #fff",
+                textDecoration: "none",
                 borderRadius: "10px",
                 padding: "2px",
               }}

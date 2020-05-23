@@ -1,5 +1,6 @@
 .gh1 {
   text-align: center;
+  text-decoration: none;
   color: #fff;
   animation: glow 1s ease-in-out infinite alternate;
 }

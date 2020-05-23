@@ -46,6 +46,16 @@ const Thumbnail = styled.div`
 const Title = styled.h4`
   color: white;
   text-decoration: none;
+  opacity: 1;
+  ${Thumbnail}:hover & {
+    display: block;
+    cursor: pointer;
+  }
+  &:hover {
+    opacity: 1;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6,
+      0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+  }
 `;
 
 const DeleteButton = styled(Icon)`
@@ -113,7 +123,7 @@ const Home = ({ boards, dispatch, match }) => {
     dispatch(addBoard(newBoardTitle));
   };
 
-  const handleDeleteBoard = (boardID) => {
+  const handleDeleteBoard = (e, boardID) => {
     console.log("KKBoard: delete board: ", boardID);
     //dispatch(deleteBoard(boardID));
   };
@@ -123,22 +133,30 @@ const Home = ({ boards, dispatch, match }) => {
     console.log("Home: ara:", Object.entries(boards));
     return Object.entries(boards).map(([boardID, board]) => {
       return (
-        <Link
-          key={boardID}
-          to={`/${boardID}`}
-          style={{ textDecoration: "none" }}
-        >
-          <Thumbnail>
-            <div className="col">
-              <Title>{board.boardTitle}</Title>
-            </div>
-            <div className="col-1">
-              <DeleteButton onClick={() => handleDeleteBoard(boardID)}>
-                delete
-              </DeleteButton>
-            </div>
-          </Thumbnail>
-        </Link>
+        <Thumbnail>
+          <a
+            href={`#/${boardID}`}
+            style={{
+              width: "100%",
+              display: "block",
+              textDecoration: "none",
+              textAlign: "center",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Title>{board.boardTitle}</Title>
+          </a>
+
+          <div className="col-1">
+            <DeleteButton
+              style={{ zIndex: "10" }}
+              onClick={(e) => handleDeleteBoard(e, boardID)}
+            >
+              delete
+            </DeleteButton>
+          </div>
+        </Thumbnail>
       );
     });
   };
