@@ -39,12 +39,17 @@ const KKForm = React.memo(
       ? "Enter list title..."
       : "Enter a title for this card...";
 
+    const handleFocus = (e) => {
+      e.target.select();
+    };
+
     return (
       <Container>
         <StyledCard>
           <StyledTextarea
             placeholder={placeholder}
             autoFocus
+            onFocus={handleFocus}
             onBlur={closeForm}
             value={text}
             onChange={(e) => onChange(e)}

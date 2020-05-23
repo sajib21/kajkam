@@ -121,6 +121,7 @@ const Home = ({ boards, dispatch, match }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addBoard(newBoardTitle));
+    setNewBoardTitle("");
   };
 
   const handleDeleteBoard = (e, boardID) => {
