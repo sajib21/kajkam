@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { addBoard, setCurrentBoard } from "../actions";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
+import { Icon } from "@material-ui/core";
 
 const HomeContainer = styled.div`
   display: flex;
@@ -20,19 +22,25 @@ const Thumbnails = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 `;
+// #afa56c; olive
+//#567644; bottle green
+//#3b3256; navy blue
+//#175160; sherlock genji
+//#4b9cdc; sky
+//#b53156; crimson
 
 const Thumbnail = styled.div`
-  height: 280px;
-  width: 280px;
-  background: grey;
+  height: 100px;
+  width: 200px;
+  background: #175160;
   padding: 10px;
   margin: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px grey;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px black;
 `;
 
 const Title = styled.h4`
@@ -40,17 +48,32 @@ const Title = styled.h4`
   text-decoration: none;
 `;
 
+const DeleteButton = styled(Icon)`
+  display: none;
+  color: white;
+  opacity: 0.5;
+  ${Thumbnail}:hover & {
+    display: block;
+    cursor: pointer;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 const CreateTitle = styled.h3`
   font-size: 48px;
   color: white;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  margin-top: 10px;
 `;
 
 const CreateInput = styled.input`
-  width: 400px;
-  height: 80px;
-  font-size: 22px;
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
   padding: 10px;
   box-sizing: border-box;
   border-radius: 3px;
@@ -58,6 +81,23 @@ const CreateInput = styled.input`
   outline-color: blue;
   box-shadow: 0 2px 4px grey;
   align-self: center;
+`;
+
+//#2e7196; b0c4de;008B8B;2F4F4F
+const CreateButton = styled.button`
+  width: 70px;
+  height: 50px;
+  background-color: #2e7196;
+  color: white;
+  font-size: 17px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  outline-color: blue;
+  box-shadow: 0 2px 4px grey;
+  align-self: center;
+  margin: 10px;
 `;
 
 const Home = ({ boards, dispatch, match }) => {
@@ -73,6 +113,11 @@ const Home = ({ boards, dispatch, match }) => {
     dispatch(addBoard(newBoardTitle));
   };
 
+  const handleDeleteBoard = (boardID) => {
+    console.log("KKBoard: delete board: ", boardID);
+    //dispatch(deleteBoard(boardID));
+  };
+
   const renderAllBoards = () => {
     console.log("Home: Obj:", boards);
     console.log("Home: ara:", Object.entries(boards));
@@ -84,7 +129,14 @@ const Home = ({ boards, dispatch, match }) => {
           style={{ textDecoration: "none" }}
         >
           <Thumbnail>
-            <Title>{board.boardTitle}</Title>
+            <div className="col">
+              <Title>{board.boardTitle}</Title>
+            </div>
+            <div className="col-1">
+              <DeleteButton onClick={() => handleDeleteBoard(boardID)}>
+                delete
+              </DeleteButton>
+            </div>
           </Thumbnail>
         </Link>
       );
@@ -101,13 +153,14 @@ const Home = ({ boards, dispatch, match }) => {
           placeholder={"Enter title and Hit enter"}
           type="text"
         />
+        <CreateButton type="button submit">Create</CreateButton>
       </form>
     );
   };
 
   return (
     <HomeContainer>
-      <h1 style={{ textAlign: "center" }}>Boards</h1>
+      <CreateTitle>Boards</CreateTitle>
       <Thumbnails>{renderAllBoards()}</Thumbnails>
       {renderCreateNewBoard()}
     </HomeContainer>

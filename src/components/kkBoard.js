@@ -12,6 +12,16 @@ const ListContainer = styled.div`
   flex-direction: row;
 `;
 
+const CreateTitle = styled.h3`
+  width: 100%;
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 55px;
+  margin-bottom: 20px;
+`;
+
 class KKBoard extends Component {
   componentDidMount() {
     const { boardID } = this.props.match.params;
@@ -46,7 +56,7 @@ class KKBoard extends Component {
 
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <h1 style={{ textAlign: "center" }}>{board.boardTitle}</h1>
+        <CreateTitle>{board.boardTitle}</CreateTitle>
         <Droppable droppableId="all-lists" direction="horizontal" type="list">
           {(provided) => (
             <ListContainer {...provided.droppableProps} ref={provided.innerRef}>
