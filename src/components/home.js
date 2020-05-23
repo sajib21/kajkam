@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addBoard, setCurrentBoard } from "../actions";
+import { addBoard, deleteBoard, setCurrentBoard } from "../actions";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
@@ -116,7 +116,7 @@ const Home = ({ boards, dispatch, match }) => {
   const [newBoardTitle, setNewBoardTitle] = useState("");
 
   const handleChange = (e) => {
-    setNewBoardTitle(e.target.value);
+    if (e.target.value.length < 12) setNewBoardTitle(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -125,7 +125,7 @@ const Home = ({ boards, dispatch, match }) => {
 
   const handleDeleteBoard = (e, boardID) => {
     console.log("KKBoard: delete board: ", boardID);
-    //dispatch(deleteBoard(boardID));
+    dispatch(deleteBoard(boardID));
   };
 
   const renderAllBoards = () => {

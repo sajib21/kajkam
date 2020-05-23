@@ -5,16 +5,6 @@ import "./anime.css";
 
 class Navbar extends Component {
   render() {
-    const { currentBoard } = this.props;
-    console.log("Navbar: render1:", currentBoard);
-    var boardTitle = null;
-    if (currentBoard) {
-      const { boardID } = currentBoard;
-      console.log("Navbar: render2:", boardID);
-      if (boardID && boardID !== "")
-        boardTitle = this.props.boards[boardID].boardTitle;
-    }
-
     return (
       <div class="fixed-top navbar-dark bg-dark">
         <div class="row my-3">
@@ -30,7 +20,7 @@ class Navbar extends Component {
                 backgroundColor: "black",
                 boxShadow: "0px 0px 5px #fff",
                 textDecoration: "none",
-                borderRadius: "10px",
+                borderRadius: "8px",
                 padding: "2px",
               }}
               href="#"

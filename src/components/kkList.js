@@ -62,7 +62,7 @@ const KKList = React.memo(({ title, cards, listID, index, dispatch }) => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    setListTitle(e.target.value);
+    if (e.target.value.length <= 20) setListTitle(e.target.value);
   };
 
   const handleCloseEdit = (e) => {

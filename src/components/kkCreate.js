@@ -19,8 +19,11 @@ class KKCreate extends Component {
     this.setState({ formOpen: false, text: "" });
   };
 
-  handleInputChange = (e) => {
-    this.setState({ text: e.target.value });
+  handleListInputChange = (e) => {
+    if (e.target.value.length <= 20) this.setState({ text: e.target.value });
+  };
+  handleCardInputChange = (e) => {
+    if (e.target.value.length <= 150) this.setState({ text: e.target.value });
   };
 
   handleAddList = () => {
@@ -49,7 +52,9 @@ class KKCreate extends Component {
       return (
         <KKForm
           text={text}
-          onChange={this.handleInputChange}
+          onChange={
+            list ? this.handleListInputChange : this.handleCardInputChange
+          }
           closeForm={this.closeForm}
         >
           <KKButton

@@ -21,6 +21,13 @@ const boardReducer = (state = initialState, action) => {
     }
 
     //TODO: case CONSTANTS.DELETE_BOARD:
+    case CONSTANTS.DELETE_BOARD: {
+      const { boardID } = action.payload;
+      console.log("Board Reducer: DELETE_BOARD:", boardID);
+      const boards = { ...state };
+      delete boards[boardID];
+      return boards;
+    }
 
     // rename board
 

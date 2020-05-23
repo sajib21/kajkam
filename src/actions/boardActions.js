@@ -11,6 +11,16 @@ export const addBoard = (boardTitle) => {
   };
 };
 
+export const deleteBoard = (boardID) => {
+  console.log("Board Action: Delete Board");
+  return {
+    type: CONSTANTS.DELETE_BOARD,
+    payload: {
+      boardID,
+    },
+  };
+};
+
 export const setCurrentBoard = (boardID) => {
   return {
     type: CONSTANTS.SET_CURRENT_BOARD,
