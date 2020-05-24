@@ -50,8 +50,6 @@ const Title = styled.h4`
   ${Thumbnail}:hover & {
     display: block;
     cursor: pointer;
-  }
-  &:hover {
     opacity: 1;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6,
       0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
@@ -59,9 +57,9 @@ const Title = styled.h4`
 `;
 
 const DeleteButton = styled(Icon)`
-  display: none;
+  display: block;
   color: white;
-  opacity: 0.5;
+  opacity: 0.3;
   ${Thumbnail}:hover & {
     display: block;
     cursor: pointer;
@@ -111,7 +109,7 @@ const CreateButton = styled.button`
 `;
 
 const Home = ({ boards, dispatch, match }) => {
-  console.log("Home: ", match.params);
+  // console.log("Home: ", match.params);
   dispatch(setCurrentBoard(null));
   const [newBoardTitle, setNewBoardTitle] = useState("");
 
@@ -125,21 +123,22 @@ const Home = ({ boards, dispatch, match }) => {
   };
 
   const handleDeleteBoard = (e, boardID) => {
-    console.log("KKBoard: delete board: ", boardID);
+    // console.log("KKBoard: delete board: ", boardID);
     dispatch(deleteBoard(boardID));
   };
 
   const renderAllBoards = () => {
-    console.log("Home: Obj:", boards);
-    console.log("Home: ara:", Object.entries(boards));
+    // console.log("Home: Obj:", boards);
+    // console.log("Home: ara:", Object.entries(boards));
     return Object.entries(boards).map(([boardID, board]) => {
       return (
         <Thumbnail>
           <a
-            href={`#/${boardID}`}
+            href={`#/boards/${boardID}`}
             style={{
               width: "100%",
-              display: "block",
+              height: "100%",
+              display: "flex",
               textDecoration: "none",
               textAlign: "center",
               justifyContent: "center",

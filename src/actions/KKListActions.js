@@ -25,7 +25,7 @@ export const editListTitle = (listID, newListTitle) => {
 };
 
 export const deleteList = (listID) => {
-  console.log("List Actions: delete list: ", listID);
+  //console.log("List Actions: delete list: ", listID);
   return (dispatch, getState) => {
     return dispatch({
       type: CONSTANTS.DELETE_LIST,

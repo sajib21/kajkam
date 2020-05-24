@@ -25,7 +25,7 @@ const CreateTitle = styled.h3`
 class KKBoard extends Component {
   componentDidMount() {
     const { boardID } = this.props.match.params;
-    console.log("Board: CDM", boardID);
+    // console.log("Board: CDM", boardID);
     this.props.dispatch(setCurrentBoard(boardID));
   }
 
@@ -45,7 +45,7 @@ class KKBoard extends Component {
   };
 
   render() {
-    console.log("Board params.boardid: ", this.props.match.params.boardID);
+    // console.log("Board params.boardid: ", this.props.match.params.boardID);
     const { lists, cards, match, boards } = this.props;
     const { boardID } = match.params;
     const board = boards[boardID];

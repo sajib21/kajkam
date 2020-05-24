@@ -23,7 +23,7 @@ const boardReducer = (state = initialState, action) => {
     //TODO: case CONSTANTS.DELETE_BOARD:
     case CONSTANTS.DELETE_BOARD: {
       const { boardID } = action.payload;
-      console.log("Board Reducer: DELETE_BOARD:", boardID);
+      // console.log("Board Reducer: DELETE_BOARD:", boardID);
       const boards = { ...state };
       delete boards[boardID];
       return boards;
@@ -40,7 +40,7 @@ const boardReducer = (state = initialState, action) => {
 
     case CONSTANTS.DELETE_LIST: {
       const { boardID, listID } = action.payload;
-      console.log("Board Reducer: delete list: ", listID, boardID);
+      // console.log("Board Reducer: delete list: ", listID, boardID);
       const board = state[boardID];
       const newLists = board.lists.filter((id) => id != listID);
       board.lists = newLists;

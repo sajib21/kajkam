@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
 import "./anime.css";
 
 class Navbar extends Component {
   render() {
     return (
-      <div class="fixed-top navbar-dark bg-dark">
-        <div class="row my-3">
-          <div class="col-4 text-left">
-            <a class="text-white" style={{ padding: "5px" }} href="#">
+      <div className="fixed-top navbar-dark bg-dark">
+        <div className="row my-3">
+          <div className="col-4 text-left">
+            <a className="text-white" style={{ padding: "5px" }} href="#">
               Home
             </a>
           </div>
-          <div class="col-4 text-center">
+          <div className="col-4 text-center">
             <a
-              class="text-white gh1"
+              className="text-white gh1"
               style={{
                 backgroundColor: "black",
                 boxShadow: "0px 0px 5px #fff",
@@ -28,21 +27,21 @@ class Navbar extends Component {
               K A J K A M
             </a>
           </div>
-          <div class="col-4 text-right">
-            <a class="text-white" style={{ padding: "5px" }}>
+          <div className="col-4 text-right">
+            <a className="text-white" style={{ padding: "5px" }} href="#/about">
               About
             </a>
           </div>
         </div>
       </div>
-      // <ul class="nav navbar-dark bg-dark">
-      //   <li class="navbar-nav order-0">
-      //     {boardTitle && <a class="nav-item nav-link active">{boardTitle}</a>}
+      // <ul className="nav navbar-dark bg-dark">
+      //   <li className="navbar-nav order-0">
+      //     {boardTitle && <a className="nav-item nav-link active">{boardTitle}</a>}
       //   </li>
 
-      //   <li class="navbar-nav justify-content-center mx-3">
+      //   <li className="navbar-nav justify-content-center mx-3">
       //     <a
-      //       class="navbar-brand gh1"
+      //       className="navbar-brand gh1"
       //       style={{
       //         boxShadow: "0px 0px 5px #fff",
       //         borderRadius: "10px",
@@ -54,8 +53,8 @@ class Navbar extends Component {
       //     </a>
       //   </li>
 
-      //   <li class="navbar-nav">
-      //     <a class="nav-item nav-link">About</a>
+      //   <li className="navbar-nav">
+      //     <a className="nav-item nav-link">About</a>
       //   </li>
       // </ul>
     );
@@ -71,22 +70,22 @@ export default connect(mapStateToProps)(Navbar);
 
 /*
 return (
-      <ul class="nav justify-content-center">
+      <ul className="nav justify-content-center">
 
-        <li class="nav-item">
-          <a class="nav-link active" href="#">
+        <li className="nav-item">
+          <a className="nav-link active" href="#">
             Active
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">
+        <li className="nav-item">
+          <a className="nav-link" href="#">
             Link
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">
+        <li className="nav-item">
+          <a className="nav-link" href="#">
             Link
           </a>
         </li>
@@ -98,10 +97,10 @@ return (
 /*
 return (
       <nav
-        class="navbar navbar-expand-lg navbar-dark bg-dark"
+        className="navbar navbar-expand-lg navbar-dark bg-dark"
         style={{ position: "fixed", zIndex: "1", width: "100%" }}
       >
-        <div class="navbar-nav d-flex w-50 order-0">
+        <div className="navbar-nav d-flex w-50 order-0">
           {boardTitle && (
             <a className="nav-item nav-link active">{boardTitle}</a>
           )}
@@ -121,7 +120,7 @@ return (
           </a>
         </div>
 
-        <span class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">
+        <span className="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">
           About
         </span>
       </nav>

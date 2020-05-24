@@ -4,7 +4,7 @@ import KKCreate from "./kkCreate";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { editListTitle, deleteList } from "../actions";
+import { editListTitle, deleteList, deleteCard } from "../actions";
 import { Icon } from "@material-ui/core";
 
 const ListContainer = styled.div`
@@ -71,7 +71,7 @@ const KKList = React.memo(({ title, cards, listID, index, dispatch }) => {
   };
 
   const handleDeleteList = () => {
-    console.log("KKList: delete list: ", listID);
+    //console.log("KKList: delete list: ", listID);
     dispatch(deleteList(listID));
   };
 

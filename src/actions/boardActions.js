@@ -12,7 +12,7 @@ export const addBoard = (boardTitle) => {
 };
 
 export const deleteBoard = (boardID) => {
-  console.log("Board Action: Delete Board");
+  //console.log("Board Action: Delete Board");
   return {
     type: CONSTANTS.DELETE_BOARD,
     payload: {
