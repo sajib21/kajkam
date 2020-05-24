@@ -34,29 +34,6 @@ class Navbar extends Component {
           </div>
         </div>
       </div>
-      // <ul className="nav navbar-dark bg-dark">
-      //   <li className="navbar-nav order-0">
-      //     {boardTitle && <a className="nav-item nav-link active">{boardTitle}</a>}
-      //   </li>
-
-      //   <li className="navbar-nav justify-content-center mx-3">
-      //     <a
-      //       className="navbar-brand gh1"
-      //       style={{
-      //         boxShadow: "0px 0px 5px #fff",
-      //         borderRadius: "10px",
-      //         padding: "5px",
-      //       }}
-      //       href="/"
-      //     >
-      //       K A J K A M
-      //     </a>
-      //   </li>
-
-      //   <li className="navbar-nav">
-      //     <a className="nav-item nav-link">About</a>
-      //   </li>
-      // </ul>
     );
   }
 }
@@ -67,62 +44,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(Navbar);
-
-/*
-return (
-      <ul className="nav justify-content-center">
-
-        <li className="nav-item">
-          <a className="nav-link active" href="#">
-            Active
-          </a>
-        </li>
-
-        <li className="nav-item">
-          <a className="nav-link" href="#">
-            Link
-          </a>
-        </li>
-
-        <li className="nav-item">
-          <a className="nav-link" href="#">
-            Link
-          </a>
-        </li>
-
-      </ul>
-    );
-*/
-
-/*
-return (
-      <nav
-        className="navbar navbar-expand-lg navbar-dark bg-dark"
-        style={{ position: "fixed", zIndex: "1", width: "100%" }}
-      >
-        <div className="navbar-nav d-flex w-50 order-0">
-          {boardTitle && (
-            <a className="nav-item nav-link active">{boardTitle}</a>
-          )}
-        </div>
-
-        <div className="nav justify-content-center">
-          <a
-            className="navbar-brand gh1"
-            style={{
-              boxShadow: "0px 0px 5px #fff",
-              borderRadius: "10px",
-              padding: "5px",
-            }}
-            href="/"
-          >
-            K A J K A M
-          </a>
-        </div>
-
-        <span className="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">
-          About
-        </span>
-      </nav>
-    );
-*/

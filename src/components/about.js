@@ -16,7 +16,7 @@ class About extends Component {
           frameworks and make projects. I targeted ReactJS and NodeJS for this.
           This project "K A J K A M" is based on React and Redux, deployed on
           Github Pages. There is no backend, the data is stored in the user's
-          browsers local storage. So if the local storage is cleared (for
+          browser's local storage. So if the local storage is cleared (for
           example by clearing cookies), the data will be gone.
         </p>
         <p style={{ color: "white" }}>
