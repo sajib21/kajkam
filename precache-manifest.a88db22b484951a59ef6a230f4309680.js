@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b96c231a00e88140d5b63acd11c60cbf",
+    "revision": "cc8ac3980ce3a375a09c0e288c472c0e",
     "url": "/kajkam/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kajkam/static/css/2.89f067aa.chunk.css"
   },
   {
-    "revision": "d898506b60200d4be671",
+    "revision": "b0c1d13498e8118ec6b0",
     "url": "/kajkam/static/css/main.d4f1527c.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kajkam/static/js/2.a9936b43.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d898506b60200d4be671",
-    "url": "/kajkam/static/js/main.5e197486.chunk.js"
+    "revision": "b0c1d13498e8118ec6b0",
+    "url": "/kajkam/static/js/main.0cd7de8a.chunk.js"
   },
   {
     "revision": "cfc3cc178a7982f94c1a",

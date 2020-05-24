@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/kajkam/static/css/main.d4f1527c.chunk.css",
-    "main.js": "/kajkam/static/js/main.5e197486.chunk.js",
-    "main.js.map": "/kajkam/static/js/main.5e197486.chunk.js.map",
+    "main.js": "/kajkam/static/js/main.0cd7de8a.chunk.js",
+    "main.js.map": "/kajkam/static/js/main.0cd7de8a.chunk.js.map",
     "runtime-main.js": "/kajkam/static/js/runtime-main.cf460f66.js",
     "runtime-main.js.map": "/kajkam/static/js/runtime-main.cf460f66.js.map",
     "static/css/2.89f067aa.chunk.css": "/kajkam/static/css/2.89f067aa.chunk.css",
     "static/js/2.a9936b43.chunk.js": "/kajkam/static/js/2.a9936b43.chunk.js",
     "static/js/2.a9936b43.chunk.js.map": "/kajkam/static/js/2.a9936b43.chunk.js.map",
     "index.html": "/kajkam/index.html",
-    "precache-manifest.ab2b19bdcc54c42e38b38408145ded03.js": "/kajkam/precache-manifest.ab2b19bdcc54c42e38b38408145ded03.js",
+    "precache-manifest.a88db22b484951a59ef6a230f4309680.js": "/kajkam/precache-manifest.a88db22b484951a59ef6a230f4309680.js",
     "service-worker.js": "/kajkam/service-worker.js",
     "static/css/2.89f067aa.chunk.css.map": "/kajkam/static/css/2.89f067aa.chunk.css.map",
     "static/css/main.d4f1527c.chunk.css.map": "/kajkam/static/css/main.d4f1527c.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.89f067aa.chunk.css",
     "static/js/2.a9936b43.chunk.js",
     "static/css/main.d4f1527c.chunk.css",
-    "static/js/main.5e197486.chunk.js"
+    "static/js/main.0cd7de8a.chunk.js"
   ]
 }
